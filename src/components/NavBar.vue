@@ -6,7 +6,7 @@
       </button>
     </div>
     <div class="navbar__menu-bar">
-      <button @click="showingMenu = !showingMenu">
+      <button class="for-mobile" @click="showingMenu = !showingMenu">
         <i class="fas fa-bars"></i>
       </button>
 
@@ -35,7 +35,6 @@ export default {
 // @include debug(magenta);
 
 .navbar {
-  // @include debug(yellow);
   color: white;
   min-height: rem(60);
   display: flex;
@@ -43,6 +42,9 @@ export default {
   align-items: center;
   padding: 0 rem(20);
   background-color: #000;
+  @include break-up(small) {
+    min-height: rem(80);
+  }
 
   &__logo {
     height: rem(40);
@@ -78,6 +80,13 @@ export default {
     flex-direction: column;
     background-color: #292929;
     transition: all 0.4s ease-in-out;
+    @include break-up(small) {
+      position: initial;
+      background: none;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+    }
 
     button {
       font-size: rem(16);
@@ -85,16 +94,32 @@ export default {
       color: $gray;
       border: none;
       outline: none;
+      line-height: 1;
       background: none;
       &:not(:last-child) {
         margin-bottom: rem(15);
       }
+      @include break-up(small) {
+        font-size: rem(17);
+        &:not(:last-child) {
+          margin-bottom: 0;
+          margin-right: rem(40);
+        }
+      }
     }
+    // .explore,
+    // .create {
+    //   position: relative;
+    //   top: rem(8.5);
+    // }
     .wallet {
       color: #000;
       padding: rem(15) rem(20);
       border-radius: rem(10);
       background-color: #fff;
+      @include break-up(small) {
+        padding: rem(18) rem(25);
+      }
     }
   }
 }

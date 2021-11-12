@@ -59,36 +59,52 @@ export default {};
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-
   color: #fff;
   padding: rem(100) rem(20) rem(40) rem(20);
   background-color: #000;
+  @include break-up(small) {
+    flex-direction: row;
+  }
 
   /**** yt video ****/
   &__yt-vid {
     width: calc(100% - rem(20));
     min-height: rem(380);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: auto auto;
+    padding: rem(10) rem(10);
     border-radius: rem(20);
     box-shadow: rgba(255, 255, 255, 0.342) 0px 10px 36px 0px,
       rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    @include break-up(small) {
+      order: 2;
+      width: rem(540);
+      min-height: rem(620);
+      padding: rem(20) rem(20);
+      margin-left: rem(80);
+    }
 
     iframe {
+      // @include debug(magenta);
       width: 100%;
-      height: rem(270);
+      @include break-up(small) {
+        height: rem(482);
+      }
     }
 
     .down-part {
+      // @include debug(magenta);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: rem(15) rem(15) 0 rem(15);
+      margin: 0 rem(15) 0 rem(15);
 
       .info {
         display: flex;
         font-size: rem(12);
+        @include break-up(small) {
+          font-size: rem(16);
+        }
 
         .name {
           color: $gray;
@@ -110,6 +126,11 @@ export default {};
           font-weight: 700;
           background-color: $blue;
           border-radius: rem(5);
+          @include break-up(small) {
+            font-size: rem(16);
+            padding: rem(15) rem(24);
+            border-radius: rem(8);
+          }
         }
       }
     }
@@ -117,10 +138,20 @@ export default {};
 
   /**** intro ****/
   &__intro {
+    @include break-up(small) {
+      order: 1;
+      width: rem(540);
+      margin-right: rem(80);
+    }
     .title {
       text-align: center;
       font-size: rem(40);
       margin-bottom: rem(10);
+      @include break-up(small) {
+        text-align: left;
+        font-size: rem(50);
+        margin-bottom: rem(16);
+      }
     }
     .desc-1,
     .desc-2 {
@@ -128,10 +159,22 @@ export default {};
       font-weight: 600;
       color: $gray;
       font-size: rem(12);
+      @include break-up(small) {
+        text-align: left;
+        font-size: rem(15);
+
+        &:not(:last-child) {
+          margin-bottom: rem(15);
+        }
+      }
     }
     .explore-btn {
       text-align: center;
       margin-top: rem(25);
+      @include break-up(small) {
+        text-align: left;
+        margin-top: rem(24);
+      }
       button {
         background-color: $blue;
         color: #fff;
@@ -140,6 +183,10 @@ export default {};
         font-weight: 700;
         padding: rem(14) rem(50);
         border-radius: rem(10);
+        @include break-up(small) {
+          padding: rem(15) rem(53);
+          font-size: rem(16);
+        }
       }
     }
   }
