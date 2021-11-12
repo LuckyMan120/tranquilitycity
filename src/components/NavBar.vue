@@ -23,13 +23,14 @@ export default {};
 // @include debug(magenta);
 
 .navbar {
-  @include debug(yellow);
+  // @include debug(yellow);
   color: white;
   min-height: rem(60);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 rem(20);
+  background-color: #000;
 
   &__logo {
     height: rem(40);
