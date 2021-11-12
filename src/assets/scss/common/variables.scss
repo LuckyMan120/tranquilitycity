@@ -1,0 +1,12 @@
+@use "sass:math";
+
+// Links
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// Function
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+// Font Family
+$montserrat: "Montserrat", sans-serif;

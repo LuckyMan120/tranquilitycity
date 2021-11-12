@@ -1,0 +1,28 @@
+// 611px, 1440px
+$breakpoints-up: (
+  "small": "38.1875em",
+  "large": "90em",
+);
+
+// 610px, 1439px
+$breakpoints-down: (
+  "small": "38.125em",
+  "large": "89.9375em",
+);
+
+@mixin break-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin break-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size )) {
+    @content;
+  }
+}
+
+/*** Debugger ***/
+@mixin debug($color) {
+  border: 1px solid $color;
+}
