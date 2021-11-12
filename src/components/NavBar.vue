@@ -6,15 +6,27 @@
       </button>
     </div>
     <div class="navbar__menu-bar">
-      <button>
+      <button @click="showingMenu = !showingMenu">
         <i class="fas fa-bars"></i>
       </button>
+
+      <div class="navbar__menu" :class="{ 'show-menu': showingMenu }">
+        <button class="btn explore">Explore</button>
+        <button class="btn create">Create</button>
+        <button class="btn wallet">Connect Wallet</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      showingMenu: false,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -47,13 +59,46 @@ export default {};
   }
 
   &__menu-bar {
-    button {
+    > button {
       color: #fff;
       background: none;
       border: none;
+      outline: none;
       font-size: rem(25);
       cursor: pointer;
     }
   }
+  &__menu {
+    position: fixed;
+    right: -100%;
+    top: rem(60);
+    bottom: 0;
+    padding: rem(20);
+    display: flex;
+    flex-direction: column;
+    background-color: #292929;
+    transition: all 0.4s ease-in-out;
+
+    button {
+      font-size: rem(16);
+      font-weight: 600;
+      color: $gray;
+      border: none;
+      outline: none;
+      background: none;
+      &:not(:last-child) {
+        margin-bottom: rem(15);
+      }
+    }
+    .wallet {
+      color: #000;
+      padding: rem(15) rem(20);
+      border-radius: rem(10);
+      background-color: #fff;
+    }
+  }
+}
+.show-menu {
+  right: 0;
 }
 </style>
