@@ -61,9 +61,10 @@ export default {
       }
     }
     .all-whys {
-      @include break-up(small) {
-        display: flex;
-      }
+      display: flex;
+      gap: rem(20);
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
   &__browse {
@@ -82,9 +83,10 @@ export default {
 
     .categories {
       @include break-up(small) {
-        display: grid;
+        max-width: rem(1200);
+        display: flex;
+        flex-wrap: wrap;
         gap: rem(35);
-        grid-template-columns: repeat(3, auto);
         justify-content: center;
       }
     }

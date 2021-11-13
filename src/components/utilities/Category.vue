@@ -31,6 +31,8 @@ export default {};
   margin-bottom: rem(30);
   @include break-up(small) {
     margin-bottom: rem(0);
+    width: rem(373);
+    padding: rem(50) rem(15) rem(20) rem(15);
   }
 
   .image {
@@ -42,6 +44,11 @@ export default {};
     align-items: center;
     border-radius: 50%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    @include break-up(small) {
+      width: rem(112);
+      height: rem(112);
+      margin-bottom: rem(70);
+    }
 
     img {
       width: rem(82);
@@ -58,11 +65,19 @@ export default {};
     padding: rem(2);
     background-color: $light-gray;
     border-radius: rem(40);
+    @include break-up(small) {
+      padding: rem(8);
+    }
 
     h2 {
       font-size: rem(14);
       line-height: rem(14);
       margin-left: rem(12);
+      @include break-up(small) {
+        font-size: rem(18);
+        line-height: rem(19);
+        margin-left: rem(15);
+      }
     }
 
     button {
@@ -75,6 +90,10 @@ export default {};
       outline: none;
       background-color: $blue;
       margin-right: rem(2);
+      @include break-up(small) {
+        width: rem(50);
+        height: rem(50);
+      }
     }
   }
 }

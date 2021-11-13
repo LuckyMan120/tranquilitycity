@@ -32,13 +32,9 @@ export default {};
   flex-direction: column;
   align-items: center;
   padding: rem(20);
-  margin-bottom: rem(20);
   @include break-up(small) {
     margin-bottom: rem(0);
     padding: rem(30);
-    &:not(:last-child) {
-      margin-right: rem(20);
-    }
   }
 
   .image {
